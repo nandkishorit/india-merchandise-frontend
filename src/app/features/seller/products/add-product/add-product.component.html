@@ -1,0 +1,189 @@
+<div class="container mt-4" [formGroup]="productForm">
+  <div class="card shadow-lg rounded-4 border-0">
+    <div class="card-body">
+      <form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="row g-3">
+        <span class="fw-bold mb-1">Add New Product</span>
+        
+        <div class="mb-1 px-1">
+          <span class="text-primary">Basic Information</span>
+          <div class="row g-3 mt-2">
+            
+            <div class="col-md-6">
+              <label>Product Name <span style="color: red;">*</span></label>
+              <input type="text" class="form-control" formControlName="name" placeholder="Example- Designer Kurti">
+               <div *ngIf="productForm.get('name')?.touched && productForm.get('name')?.invalid">
+                  <small *ngIf="productForm.get('name')?.errors?.['required']" style="color: red;">
+                    Input required 
+                  </small>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <label>Brand <span style="color: red;">*</span></label>
+              <input type="text" class="form-control" formControlName="brand">
+              <div *ngIf="productForm.get('brand')?.touched && productForm.get('brand')?.invalid">
+                  <small *ngIf="productForm.get('brand')?.errors?.['required']" style="color: red;">
+                    Input required 
+                  </small>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label>Description <span style="color: red;">*</span></label>
+              <textarea class="form-control" rows="3" formControlName="description"></textarea>
+              <div *ngIf="productForm.get('description')?.touched && productForm.get('description')?.invalid">
+                  <small *ngIf="productForm.get('description')?.errors?.['required']" style="color: red;">
+                    Input required 
+                  </small>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        
+        <div class="mb-1">
+          <span class="text-primary">Category </span>
+          <div class="row g-3 mt-0">
+            <div class="col-md-4">
+              <label>Main Category <span style="color: red;">*</span></label>
+              <select class="form-control" formControlName="category_id" (change)="onMainChange($any($event.target).value)">
+                <option value="">--Select--</option>
+                <option *ngFor="let c of mainCategory" [value]="c.id" >
+                  {{c.name}}
+                </option>
+              </select>
+               <div *ngIf="productForm.get('category_id')?.touched && productForm.get('category_id')?.invalid">
+                  <small *ngIf="productForm.get('category_id')?.errors?.['required']" style="color: red;">
+                    Please Select Category
+                  </small>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <label>Sub Category <span style="color: red;">*</span></label>
+              <select class="form-control" formControlName="subCategoryId" (change)="onSubcategoryChange($any($event.target).value)">
+                <option value="">--Select--</option>
+                <option *ngFor="let s of subCategories" [value]="s.id">
+                  {{s.name}}
+                </option>
+              </select>
+               <div *ngIf="productForm.get('subCategoryId')?.touched && productForm.get('subCategoryId')?.invalid">
+                  <small *ngIf="productForm.get('subCategoryId')?.errors?.['required']" style="color: red;">
+                    Please Select Sub-Category
+                  </small>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <label>Product Type <span style="color: red;">*</span></label>
+              <select class="form-control" formControlName="productType">
+                <option value="">--Select--</option>
+                <option *ngFor="let ch of productTypes" [value]="ch.id">
+                  {{ch.name}}
+                </option>
+              </select>
+              <div *ngIf="productForm.get('productType')?.touched && productForm.get('productType')?.invalid">
+                  <small *ngIf="productForm.get('productType')?.errors?.['required']" style="color: red;">
+                    Please Select Product Type
+                  </small>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        
+        <div class="mb-0">
+         <div class="row g-3 mt-0">
+            <div class="col-md-4" *ngFor="let attr of attributes">
+              <label>{{attr.name}}</label>
+              <input type="text"
+                    class="form-control">
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="mb-0">
+          <span class="text-primary">Variants</span>
+
+          <table class="table table-bordered mt-1">
+            <thead class="table-light">
+              <tr>
+                <th>SKU</th>
+                <th>Size</th>
+                <th>Color</th>
+                <th>Price <span style="color: red;">*</span></th>
+                <th>Stock <span style="color: red;">*</span></th>
+                <th>Action </th>
+              </tr>
+            </thead>
+
+            <tbody formArrayName="variants">
+              <tr *ngFor="let v of variants.controls; let i = index" [formGroupName]="i">
+
+                <td><input class="form-control" formControlName="sku"></td>
+                <td>
+                  <select class="form-control" formControlName="size">
+                    <option *ngFor="let size of sizes" [value]="size.value">{{size.value}}</option>
+                  </select>
+                </td>
+                <td>
+                <select class="form-control" formControlName="color">
+                      <option *ngFor="let color of colors" [value]="color.value">{{color.value}}</option>
+                </select>
+                </td>
+                <td><input type="number" class="form-control" formControlName="price">
+                  <div *ngIf="productForm.get('price')?.touched && productForm.get('price')?.invalid">
+                    <small *ngIf="productForm.get('price')?.errors?.['required']" style="color: red;">
+                      Input required
+                    </small>
+                  </div>
+                </td>
+                <td><input type="number" class="form-control" formControlName="stock"></td>
+                  <div *ngIf="productForm.get('stock')?.touched && productForm.get('stock')?.invalid">
+                    <small *ngIf="productForm.get('stock')?.errors?.['required']" style="color: red;">
+                      Input required
+                    </small>
+                  </div>
+                <td>
+                  <button class="btn btn-danger btn-sm" type="button" (click)="removeVariant(i)">X</button>
+                </td>
+
+              </tr>
+            </tbody>
+          </table>
+
+          <button class="btn btn-outline-primary btn-sm" type="button" (click)="addVariant()">
+            + Add Variant
+          </button>
+        </div>
+
+       
+        <div class="mb-4">
+          <span class="text-primary">Product Images <span style="color: red;">*</span></span>
+
+          <input type="file" class="form-control" multiple (change)="onFileSelect($event)">
+
+          <div class="d-flex mt-3 gap-2">
+            <img *ngFor="let img of previewImages"
+                [src]="img"
+                width="80"
+                class="rounded border">
+          </div>
+        </div>
+
+        <!-- SUBMIT -->
+        <div class="text-end">
+           <button class="btn btn-danger px-4 py-2" type="button" (click)="goBack()">
+            Back
+          </button>&nbsp;
+          <button class="btn btn-success px-4" type="submit">
+            Save Product
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

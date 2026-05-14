@@ -1,0 +1,97 @@
+<!-- <header class="header fixed-top">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light ">
+            <div class="container-lg container-md container-xl">
+            
+            <a class="navbar-brand"  href="/">
+                <img class="img-responsive" src="images/logo/logo.png" alt="logo"/>
+            </a>
+            <button class="navbar-toggler"type="button"data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav" >
+                <div class="menu-main-menu-container">
+                    <ul class="navbar-nav">
+                        <li>
+                        <a href="/free-listing" aria-current="page" >free-listing</a>
+                        </li>
+                        <li>
+                        <a href="javascript:void(0)">for seller</a>
+                        </li>
+                        <li>
+                        <a href="javascript:void(0)">for Buyers</a>
+                        </li>
+                        <li>
+                        <a href="/contact">Contact</a>
+                       
+                        </li>
+                        <li> <a href="/report">Report</a></li> 
+                    </ul>
+                    <div class="contact_btn">
+                        <a class="btn" href="javascript:void(0)" (click)="onLoginClick()" >login</a>
+                        <a class="btn" href="javascript:void(0)" (click)="onLogout()" >logout</a>
+                        <a class="btn" href="javascript:void(0)" >signup</a >
+                    </div>
+                    
+                </div>
+                
+            </div>
+            </div>
+        </nav>
+    </div>
+</header>
+-->
+
+<header class="header fixed-top">
+  <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container-lg container-md container-xl">
+
+        <!-- Logo -->
+        <a class="navbar-brand" routerLink="/">
+          India Merchandise
+          <!-- <img class="img-responsive" src="images/logo/logo.png" alt="logo" /> -->
+        </a>
+
+        <!-- Mobile Toggle -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Nav Links -->
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <div class="menu-main-menu-container">
+            <ul class="navbar-nav">
+                <li><a href='/free-listing' routerLinkActive="active">Free Listing</a></li>
+                <li><a href='/seller' routerLinkActive="active">For Seller</a></li>
+                <li><a href='/buyer' routerLinkActive="active">For Buyer</a></li>
+                <li><a href='/contact' routerLinkActive="active">Contact</a></li>
+                <!-- <li><a [routerLink]="['/free-listing']" routerLinkActive="active">Free Listing</a></li>
+                <li><a [routerLink]="['/seller']" routerLinkActive="active">For Seller</a></li>
+                <li><a [routerLink]="['/buyer']" routerLinkActive="active">For Buyer</a></li>
+                <li><a [routerLink]="['/contact']" routerLinkActive="active">Contact</a></li> -->
+            </ul>
+            
+            <!-- Buttons -->
+            <div class="contact_btn">
+              <!-- If user not logged in -->
+              <a class="btn me-2" *ngIf="!isLoggedIn" (click)="onLoginClick()">Login</a>
+              <a class="btn" *ngIf="!isLoggedIn" routerLink="/signup">Signup</a>
+
+              <!-- If user logged in -->
+              <a class="btn" *ngIf="isLoggedIn" (click)="onLogout()">Logout</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+

@@ -1,0 +1,186 @@
+<nav aria-label="breadcrumb" class="mb-0">
+  <div class="d-flex justify-content-between align-items-center bg-light p-2 rounded">
+  <ol class="breadcrumb bg-light p-1 rounded">
+   <li class="breadcrumb-item">
+      <a routerLink="/dashboard" class="text-decoration-none text-primary">
+         <i class="bi bi-house-door-fill me-1"></i> Dashboard
+      </a>
+    </li>
+    <li class="breadcrumb-item">Buyers Master</li>
+  </ol>
+  </div>
+</nav>
+
+<div class="card shadow-lg border-0 rounded-3">
+  <div class="card-header bg-white border-0 d-flex justify-content-between align-items-center p-0">
+    <div class="card-body">
+      <form class="row g-4" >
+        <div class="row g-3"> 
+          <div class="col-md-4 align-items-end">
+              <input type="text" class="form-control" placeholder="Search" formControlName="vendor">
+            </div>
+          </div> 
+      </form>
+    </div>
+   </div>
+
+ <div class="card-body p-2">
+  <div class="table-responsive">
+    <table class="table table-hover align-middle mb-0 table-striped table-bordered table-sm text-sm">
+      <thead class="table-dark text-light">
+        <tr class="small">
+          <th>S.No.</th>
+          <th>Status</th>
+          <th>User Name</th>
+          <!-- <th>Email</th> -->
+          <th>Business Name</th>
+          <th>GST </th>
+          <th>State</th>
+          <!-- <th>Pincode</th> -->
+          <th>Action</th>
+        </tr>
+      </thead>
+      
+      
+      <tbody>
+          <tr *ngFor="let buyer of buyerLists; let i = index" class="border-bottom">
+          <td><span class="text-success">{{i+1}}</span></td>
+          <td>
+           <span class="badge"
+              [ngClass]="{
+                'bg-warning': buyer.verification_status === 'pending',
+                'bg-success': buyer.verification_status === 'approved',
+                'bg-danger': buyer.verification_status === 'rejected'
+              }">
+              {{ buyer.verification_status }}
+            </span>
+          </td>
+          <td><span class="text-black">{{buyer.username}}</span></td>
+          <!-- <td>{{buyer.email}}</td> -->
+          <td><span class="text-black">{{buyer.business_name}}</span></td>
+          <td class="text-black">{{buyer.gst_number}}</td>
+       
+          <td>{{buyer.state}}</td>
+          <!-- <td>{{buyer.pincode}}</td> -->
+          <!-- <td><span class="text-danger">{{buyer.verification_status}}</span></td> -->
+          
+          <td>
+            <!-- PENDING -->
+            <ng-container *ngIf="buyer.verification_status === 'pending'">
+              <button class="btn btn-success btn-sm shadow-sm rounded-pill px-3 py-1 me-2 d-inline-flex align-items-center"
+                (click)="updateStatus(buyer.userId, 'approved')">
+                ✔ Approve
+              </button>
+
+              <button class="btn btn-danger btn-sm shadow-sm rounded-pill px-3 py-1 me-2 d-inline-flex align-items-center"
+                (click)="updateStatus(buyer.userId, 'rejected')">
+                ✖ Reject
+              </button>
+            </ng-container>
+
+            <!-- APPROVED -->
+            <ng-container *ngIf="buyer.verification_status === 'approved'">
+              <button class="btn btn-danger btn-sm shadow-sm rounded-pill px-3 py-1 me-2 d-inline-flex align-items-center"
+                (click)="updateStatus(buyer.userId, 'rejected')">
+                ✖ Reject
+              </button>
+            </ng-container>
+
+            <!-- REJECTED -->
+            <ng-container *ngIf="buyer.verification_status === 'rejected'">
+              <button class="btn btn-success btn-sm shadow-sm rounded-pill px-3 me-2 py-1 d-inline-flex align-items-center"
+                (click)="updateStatus(buyer.userId, 'approved')">
+                ✔ Approve
+              </button>
+            </ng-container>
+
+              <button class="btn btn-warning btn-sm shadow-sm rounded-pill px-3 py-1 me-2 d-inline-flex align-items-center" (click)="openModal(buyer.userId)">✏️ View</button>
+              <button class="btn btn-primary btn-sm shadow-sm rounded-pill px-3 py-1 me-2 d-inline-flex align-items-center">✏️ Edit</button>
+              <button class="btn btn-danger btn-sm shadow-sm rounded-pill px-3 py-1  d-inline-flex align-items-center">✏️ Delete</button>
+          </td>
+        </tr>
+
+        <!-- No Data Message -->
+        <!-- <tr *ngIf="paginatedData.length === 0">
+          <td colspan="5" class="text-center text-muted">
+            No records found
+          </td>
+        </tr> -->
+      </tbody>
+
+    </table>
+
+  </div>
+
+  <!-- Pagination OUTSIDE table -->
+  <!-- <div class="d-flex justify-content-center mt-3 pb-3">
+    <button 
+      class="btn btn-sm btn-secondary me-1"
+      (click)="prevPage()"
+      [disabled]="currentPage === 1">
+      Prev
+    </button>
+
+    <button 
+      class="btn btn-sm btn-secondary me-1"
+      *ngFor="let page of pagesArray(); let i = index"
+      (click)="changePage(i + 1)"
+      [class.active]="currentPage === (i + 1)">
+      {{ i + 1 }}
+    </button>           
+
+  <button 
+    class="btn btn-sm btn-secondary"
+    (click)="nextPage()"
+    [disabled]="currentPage === totalPages()">
+    Next
+  </button>
+</div> -->
+</div>
+</div>
+
+<!--------------Modal ---------------------->
+<div class="custom-modal-backdrop" *ngIf="isModalOpen">
+  <div class="custom-modal">
+    <div class="modal-header">
+      <span class="modal-title text-primary">Buyer Details</span>
+      <button class="btn-close" (click)="closeModal()"></button>
+    </div>
+
+    <div class="modal-body" *ngIf="buyerListsById;">
+      <p><b>Seller Name  : </b>{{buyerListsById.username}}</p>
+      <p><b>Email        : </b>{{buyerListsById.email}}</p>
+      <p><b>Contact no.   : </b>{{buyerListsById.phone}}</p>
+      <p><b>Business Name: </b>{{buyerListsById.business_name}}</p>
+      <p><b>GST Number   : </b>{{buyerListsById.gst_number}}</p>
+      <p><b>Address    : </b>{{buyerListsById.address}}</p>
+      <p><b>City         : </b>{{buyerListsById.city}}</p>
+      <p><b>State        : </b>{{buyerListsById.state}}</p>
+      <p><b>District     : </b>{{buyerListsById.district}}</p>
+      <p><b>PinCode      : </b>{{buyerListsById.pincode}}</p>
+    </div>
+</div>
+</div>
+
+
+<!-- <app-modal
+  [isOpen]="isModalOpen"
+  title="Seller Deta"
+  (closeModal)="closeModal()">
+
+<div *ngIf="data">
+      <p><b>Seller Name   : </b>{{data.username}}</p>
+      <p><b>Email         : </b>{{data.email}}</p>
+      <p><b>Business Name : </b>{{data.business_name}}</p>
+      <p><b>Business Type : </b>{{data.business_type}}</p>
+      <p><b>GST Number    : </b>{{data.gst_number}}</p>
+      <p><b>Contact Person: </b>{{data.contact_person_name}}</p>
+      <p><b>Contact no.   : </b>{{data.contact_phone}}</p>
+      <p><b>Address 1     : </b>{{data.address_line1}}</p>
+      <p><b>Address 2     : </b>{{data.address_line2}}</p>
+      <p><b>City          : </b>{{data.city}}</p>
+      <p><b>State         : </b>{{data.state}}</p>
+      <p><b>District      : </b>{{data.district}}</p>
+      <p><b>PinCode       : </b>{{data.pincode}}</p>
+</div>
+</app-modal>  -->

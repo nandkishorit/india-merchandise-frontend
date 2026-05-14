@@ -1,0 +1,69 @@
+<!-- pdf-list.component.html -->
+ <section class="category">
+    <div class="container mt-4 mb-4">
+        <div class="category-inner">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-sm-6 col-12">
+                    <div class="category-dropdown">
+                        <label for="categorySelect" class="form-label">Category:</label>
+                        <label for="categorySelect" class="form-label"><span>Furniture</span> > <span>Sofa
+                                Set</span></label> 
+                    </div>
+                </div>
+                <div class="col-lg-2 col-sm-6 col-12">
+                    <div class="category-dropdown">
+                        <label for="categorySelect" class="form-label">Price:</label>
+                        <select id="categorySelect" class="form-select" style="width: auto;">
+                            <option selected>Low To high</option>
+                            <option value="1">Electronics</option>
+                            <option value="2">Home Decor</option>
+                            <option value="3">Kitchen</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-sm-6 col-12">
+                    <div class="category-dropdown col-sm-6 col-12">
+                        <label for="categorySelect" class="form-label">Cities:</label>
+                        <select id="categorySelect" class="form-select" style="width: auto;">
+                            <option selected>Indore</option>
+                            <option value="1">Electronics</option>
+                            <option value="2">Home Decor</option>
+                            <option value="3">Kitchen</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-sm-6 col-12">
+                    <div class="category-dropdown col-sm-6 col-12">
+                        <label for="categorySelect" class="form-label">Brand:</label>
+                        <select id="categorySelect" class="form-select" style="width: auto;">
+                            <option selected>Stonewood</option>
+                            <option value="1">Electronics</option>
+                            <option value="2">Home Decor</option>
+                            <option value="3">Kitchen</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="category-page">
+            <div class="row">
+                <div class="container">
+                <h1>PDF Library</h1>
+              
+                <div *ngFor="let category of categories" class="category" mt-10>
+                   
+                <h2>{{ category.name }}</h2>
+
+                <ul>
+                <li *ngFor="let pdf of category.pdfs">
+                <a [href]="pdf.link" target="_blank" rel="noopener noreferrer" (click)="handleClick(pdf)">{{ pdf.title }}</a>
+                </li>
+                </ul>
+                </div>
+                </div>
+            </div>
+         </div>
+        </div>
+ 
+</section>
+

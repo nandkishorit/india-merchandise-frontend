@@ -1,0 +1,23 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { AddProducttypeComponent } from './add-producttype.component';
+
+describe('AddProducttypeComponent', () => {
+  let component: AddProducttypeComponent;
+  let fixture: ComponentFixture<AddProducttypeComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [AddProducttypeComponent]
+    })
+    .compileComponents();
+
+    fixture = TestBed.createComponent(AddProducttypeComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

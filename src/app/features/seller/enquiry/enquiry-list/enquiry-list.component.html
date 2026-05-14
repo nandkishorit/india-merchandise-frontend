@@ -1,0 +1,228 @@
+<nav aria-label="breadcrumb" class="mb-0">
+  <div class="d-flex justify-content-between align-items-center bg-light p-2 rounded">
+  <ol class="breadcrumb bg-light p-1 rounded">
+   <li class="breadcrumb-item">
+      <a routerLink="/dashboard" class="text-decoration-none text-primary">
+         <i class="bi bi-house-door-fill me-1"></i> Dashboard
+      </a>
+    </li>
+    <li class="breadcrumb-item">Buyer's Enquiry Master</li>
+  </ol>
+  </div>
+</nav>
+
+
+<div class="card shadow-lg border-0 rounded-3">
+  <div class="card-header bg-white border-0 d-flex justify-content-between align-items-center p-0">
+    <div class="card-body">
+      <form class="row g-4" >
+        <div class="row g-3"> 
+            <div class="col-md-4 align-items-end">
+              <input type="text" class="form-control" placeholder="Search" formControlName="vendor">
+            </div>
+          </div> 
+      </form>
+    </div>
+
+    <span class="current-plan-badge px-4 ">
+      <i class="fas fa-crown"></i>
+      <strong>Plan:</strong> {{ sellerCurrentPlan?.plan_name }}
+      ₹{{ sellerCurrentPlan?.price }}
+    </span>
+     <span class="current-plan-badge px-4 ">
+      <i class="fas fa-crown"></i>
+      <strong>Subscription Period:</strong>
+      {{ sellerCurrentPlan?.start_date | date:'dd-MMM-yyyy' }}- {{ sellerCurrentPlan?.end_date | date:'dd-MMM-yyyy' }}
+    </span>
+   </div>
+
+ <div class="card-body p-2">
+  <div class="table-responsive">
+    <table class="table table-hover align-middle mb-0 table-striped table-bordered table-sm text-sm">
+      <thead class="table-dark text-light">
+        <tr class="small">
+          <th>S.No.</th>
+          <th>Product</th>
+          <th>Buyer</th>
+          <!-- <th>Email</th>-->
+          <th>Phone </th>
+          <!-- <th>Message</th> -->
+          <th>Created Date</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      
+      
+      <tbody>
+          <tr *ngFor="let enquiry of enquiryLists; let i = index" class="border-bottom">
+          <td><span class="text-success">{{i+1}}</span></td>
+          <!-- <td>
+           <span class="badge"
+              [ngClass]="{
+                'bg-warning': enquiry.verification_status === 'pending',
+                'bg-success': enquiry.verification_status === 'approved',
+                'bg-danger': enquiry.verification_status === 'rejected'
+              }">
+              {{ buyer.verification_status }}
+            </span>
+          </td> -->
+          <td><span class="text-danger">{{enquiry.product_name}}</span></td>
+        <td><span class="text-black">{{enquiry.business_name}}</span></td>
+          <!-- <td class="text-black">{{enquiry.email}}</td>
+          <td class="text-black">{{enquiry.phone}}</td> -->
+          <td class="text-black">
+              <span *ngIf="!enquiry.is_unlocked">
+                **********
+              </span>
+
+              <span *ngIf="enquiry.is_unlocked">
+                {{ enquiry.phone }}
+              </span>
+          </td>
+          <!-- <td class="text-success">{{enquiry.last_message}}</td> -->
+          <td class="text-primary">{{enquiry.created_at | date:'dd-MMM-yyyy'}}</td>
+          
+         <td class="text-danger">{{enquiry.status}}</td>
+          <td>
+            <button class="btn btn-warning btn-sm shadow-sm rounded-pill px-3 py-1 me-2 d-inline-flex align-items-center" (click)="openModal(enquiry.id)">✏️ View</button>
+
+            <button *ngIf="!enquiry.is_unlocked" 
+            class="btn btn-danger btn-sm shadow-sm rounded-pill px-3 py-1 me-2 d-inline-flex align-items-center" (click)="unlockContact(enquiry.id)">
+              🔓 Unlock Contact
+            </button>
+            <button 
+              *ngIf="enquiry.is_unlocked"
+              class="btn btn-success btn-sm shadow-sm rounded-pill px-3 py-1 me-2 d-inline-flex align-items-center"
+              disabled>
+              ✔ Unlocked
+            </button>
+            
+            <a 
+              *ngIf="enquiry.is_unlocked"
+              [href]="'https://wa.me/91' + enquiry.phone"
+              target="_blank"
+              class="btn btn-success btn-sm shadow-sm rounded-pill px-3 py-1 me-2 d-inline-flex align-items-center">
+              WhatsApp
+            </a>
+            <!-- <button class="btn btn-primary btn-sm shadow-sm rounded-pill px-3 py-1 me-2 d-inline-flex align-items-center">✏️ Edit</button>
+            <button class="btn btn-danger btn-sm shadow-sm rounded-pill px-3 py-1  d-inline-flex align-items-center">✏️ Delete</button> -->
+            <!-- <div *ngIf="contact">
+              📞 {{contact.phone}}
+              <a [href]="'https://wa.me/91'+contact.phone">WhatsApp</a>
+            </div> -->
+          </td>
+        </tr>
+
+        <!-- No Data Message -->
+        <!-- <tr *ngIf="paginatedData.length === 0">
+          <td colspan="5" class="text-center text-muted">
+            No records found
+          </td>
+        </tr> -->
+      </tbody>
+
+    </table>
+
+  </div>
+
+  <!-- Pagination OUTSIDE table -->
+  <!-- <div class="d-flex justify-content-center mt-3 pb-3">
+    <button 
+      class="btn btn-sm btn-secondary me-1"
+      (click)="prevPage()"
+      [disabled]="currentPage === 1">
+      Prev
+    </button>
+
+    <button 
+      class="btn btn-sm btn-secondary me-1"
+      *ngFor="let page of pagesArray(); let i = index"
+      (click)="changePage(i + 1)"
+      [class.active]="currentPage === (i + 1)">
+      {{ i + 1 }}
+    </button>           
+
+  <button 
+    class="btn btn-sm btn-secondary"
+    (click)="nextPage()"
+    [disabled]="currentPage === totalPages()">
+    Next
+  </button>
+</div> -->
+</div>
+</div>
+
+<!--------------Modal ---------------------->
+<div class="custom-modal-backdrop" *ngIf="isModalOpen">
+  <div class="custom-modal">
+    <div class="modal-header">
+      <span class="modal-title text-primary">Buyer Details</span>
+      <button class="btn-close" (click)="closeModal()">×</button>
+    </div>
+   
+    <div class="modal-body" *ngIf="enquiryListsById;">
+      <p><b>Product Name: </b>{{enquiryListsById.product_name}}</p>
+      <p><b>Buyer Name  : </b>{{enquiryListsById.buyer_name}}</p>
+      <p><b>Business Name        : </b>{{enquiryListsById.business_name}}</p>
+      <!-- <p><b>Email   : </b>{{enquiryListsById.email}}</p>
+      <p><b>Phone   : </b>{{enquiryListsById.phone}}</p> -->
+      <p><b>Quantity    : </b>{{enquiryListsById.quantity}}</p>
+      <p><b>Message         : </b>{{enquiryListsById.last_message}}</p>
+      <!-- <p><b>Created Date        : </b>{{enquiryLists.state}}</p> -->
+   
+    </div>
+</div>
+</div>
+
+
+<div class="custom-modal-backdrop" *ngIf="showUpgradeModal">
+  <div class="custom-modal">
+    <div class="modal-header">
+      <h2 class="modal-title">Upgrade Your Plan</h2>
+      <p class="text-danger">
+        You've reached your limit. Upgrade to continue unlocking leads.
+      </p>
+      <button class="btn-close" (click)="closeModal()">×</button>
+    </div>
+
+    
+    <div class="modal-body">
+      <div class="plans-container">
+        <div 
+          class="plan-card" 
+          *ngFor="let plan of subscriptionPlan"
+          [ngClass]="{'recommended': plan.name === 'Basic'}">
+
+        <div class="badge" *ngIf="plan.name === 'Basic'">
+          Recommended
+        </div>
+        
+        <h3>{{ plan.name }}</h3>
+
+        <div class="price">
+          ₹{{ plan.price }}
+          <span>/ {{ plan.validity_days }} days</span>
+        </div>
+
+       
+        <ul class="features">
+          <li>{{ plan.unlock_limit }} Leads</li>
+          <li *ngIf="plan.contact_access === 'full'">Full Contact Access</li>
+          <li *ngIf="plan.priority_listing">Priority Listing</li>
+          <li *ngIf="plan.chat_enabled">Chat Enabled</li>
+        </ul>
+
+        <button class="upgrade-btn" [disabled]="isLoading" (click)="upgradePlan(plan)">
+           Upgrade & Continue
+        </button>
+      </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="close-btn" (click)="closeModal()">Cancel</button>
+      </div>
+
+    </div>
+  </div>
+</div>

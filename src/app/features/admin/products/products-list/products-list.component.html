@@ -1,0 +1,159 @@
+<nav aria-label="breadcrumb" class="mb-0">
+  <div class="d-flex justify-content-between align-items-center bg-light p-2 rounded">
+  <ol class="breadcrumb bg-light p-1 rounded">
+   <li class="breadcrumb-item">
+      <a routerLink="/dashboard" class="text-decoration-none text-primary">
+         <i class="bi bi-house-door-fill me-1"></i> Dashboard
+      </a>
+    </li>
+    <li class="breadcrumb-item">Product Master</li>
+  </ol>
+  </div>
+</nav>
+
+<div class="card shadow-lg border-0 rounded-3">
+  <div class="card-header bg-white border-0 d-flex justify-content-between align-items-center p-0">
+    <div class="card-body">
+      <form class="row g-4" >
+        
+        <div class="row g-3"> 
+          <div class="col-md-8">
+            <!-- <button type="button" class="btn btn-success me-2 " (click)="addProduct()">
+              + Add Product
+            </button> -->
+              <button type="button" class="btn btn-primary me-2" (click)="approveRejectSelected('approved')">
+              Approve
+            </button>
+            <button type="button" class="btn btn-danger" (click)="approveRejectSelected('rejected')">
+             Reject
+            </button>
+          </div>
+          <div class="col-md-4 align-items-end">
+              <input type="text" class="form-control" placeholder="Search">
+            </div>
+          </div> 
+       
+      </form>
+    </div>
+    
+  </div>
+
+ <div class="card-body p-2">
+  <div class="table-responsive">
+    <table class="table table-hover align-middle mb-0 table-striped table-bordered table-sm text-sm">
+      
+      <thead class="table-dark text-light">
+        <tr class="small">
+          <th>S.No.</th>
+          <th>
+            <input type="checkbox" (change)="toggleAll($event)" [checked]="isAllSelected()" >
+          </th>
+           <th>Staus</th>
+          <th>Company Name</th>
+          <th>Business Type</th>
+          <th>Product Name</th>
+          <!-- <th>Brand</th> -->
+          <th>Category</th>
+          <!-- <th>Price</th> -->
+          <th>Stock</th>
+          <!-- <th>Size</th> -->
+         
+          <th>Action</th>
+        </tr>
+      </thead>
+      
+      
+      <tbody>
+          <tr *ngFor="let product of productLists; let i = index" class="border-bottom">
+          <td><span class="text-success">{{i+1}}</span></td>
+          <td><input type="checkbox" [(ngModel)]="product.selected" ></td>
+           <td>
+           <span class="badge"
+              [ngClass]="{
+                'bg-primary': product.verification_status === 'pending',
+                'bg-success': product.verification_status === 'approved',
+                'bg-danger': product.verification_status === 'rejected'
+              }">
+              {{ product.verification_status }}
+            </span>
+          </td>
+          <td><span class="text-black">{{product.business_name}}</span></td>
+          <td><span class="text-black">{{product.business_type}}</span></td>
+          <td><span class="text-black">{{product.name}}</span></td>
+          <!-- <td class="text-primary">{{product.brand}}</td> -->
+          <td>{{product.category_name}}</td>
+          <!-- <td>{{product.max_price}}</td> -->
+          <td>{{product.stock_status}}</td>
+          <!-- <td>{{product.sizes}}</td> -->
+          
+          <td> <button class="btn btn-warning btn-sm shadow-sm rounded-pill px-3 py-1 me-2 d-inline-flex align-items-center" (click)="openModal(product.product_id)">✏️ View</button>
+               <button class="btn btn-primary btn-sm shadow-sm rounded-pill px-3 py-1 me-2 d-inline-flex align-items-center">✏️ Edit</button>
+               <button class="btn btn-danger btn-sm shadow-sm rounded-pill px-3 py-1 d-inline-flex align-items-center" (click)="deleteProducts(product.product_id)">✏️ Delete</button>
+          </td>
+        </tr>
+
+        <!-- No Data Message -->
+        <!-- <tr *ngIf="paginatedData.length === 0">
+          <td colspan="5" class="text-center text-muted">
+            No records found
+          </td>
+        </tr> -->
+      </tbody>
+
+    </table>
+
+  </div>
+
+  <!-- Pagination OUTSIDE table -->
+  <!-- <div class="d-flex justify-content-center mt-3 pb-3">
+    
+    <button 
+      class="btn btn-sm btn-secondary me-1"
+      (click)="prevPage()"
+      [disabled]="currentPage === 1">
+      Prev
+    </button>
+
+    <button 
+      class="btn btn-sm btn-secondary me-1"
+      *ngFor="let page of pagesArray(); let i = index"
+      (click)="changePage(i + 1)"
+      [class.active]="currentPage === (i + 1)">
+      {{ i + 1 }}
+    </button>           
+
+  <button 
+    class="btn btn-sm btn-secondary"
+    (click)="nextPage()"
+    [disabled]="currentPage === totalPages()">
+    Next
+  </button>
+
+  </div> -->
+
+</div>
+</div>
+
+<!--------------Modal ---------------------->
+<div class="custom-modal-backdrop" *ngIf="isModalOpen">
+  <div class="custom-modal">
+    <div class="modal-header">
+      <span class="modal-title text-primary">Product Details</span>
+      <button class="btn-close" (click)="closeModal()"></button>
+    </div>
+
+    <div class="modal-body" *ngIf="productListsById;">
+      <p><b>Product Name  : </b>{{productListsById.name}}</p>
+      <p><b>Brand        : </b>{{productListsById.brand}}</p>
+      <p><b>Description: </b>{{productListsById.description}}</p>
+      <p><b>Min Price: </b>{{productListsById.min_price}}</p>
+      <p><b>Max Price   : </b>{{productListsById.max_price}}</p>
+      <p><b>Stock   : </b>{{productListsById.stock}}</p>
+      <p><b>Stock Status   : </b>{{productListsById.stock_status}}</p>
+      <p><b>Colors   : </b>{{productListsById.colors}}</p>
+      <p><b>Sizes    : </b>{{productListsById.sizes}}</p>
+    </div>
+</div>
+</div>
+
+

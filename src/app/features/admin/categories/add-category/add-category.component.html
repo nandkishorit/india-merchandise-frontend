@@ -1,0 +1,61 @@
+<div class="card shadow-lg border-0 rounded-3 p-0">
+  <div class="card-body">
+    <fieldset class="border rounded-3 p-2">
+    <legend class="float-none w-auto px-2 text-primary">
+        Create Category
+    </legend>
+    
+    <div class="card-body">
+        <form  [formGroup]="categoryForm" (ngSubmit)="onSubmit()" class="row g-3">
+           <div class="col-md-4">
+            <label class="form-label fw-bold small">Name <span style="color: red;">*</span></label>
+            
+            <input 
+              type="text" 
+              class="form-control"
+              placeholder="Enter Category Name"
+              formControlName="name">
+              <div *ngIf="categoryForm.get('name')?.touched && categoryForm.get('name')?.invalid">
+
+                <small *ngIf="categoryForm.get('name')?.errors?.['required']" style="color: red;">
+                  Input required 
+                </small>
+              </div>
+          </div>
+
+          <!-- Item Serial Number -->
+          <!-- <div class="col-md-4">
+            <label class="form-label fw-bold small">Slug<span style="color: red;">*</span></label>
+            <input 
+              type="text" 
+              class="form-control"
+              placeholder="Enter Slug"
+              formControlName="slug">
+              <div *ngIf="categoryForm.get('slug')?.touched && categoryForm.get('slug')?.invalid">
+
+                <small *ngIf="categoryForm.get('slug')?.errors?.['required']" style="color: red;">
+                  Input required
+                </small>
+
+              </div>
+          </div> -->
+        <!-- Buttons -->
+          <div class="col-12 text-end">
+            <button 
+              type="button"
+              class="btn btn-danger rounded-pill px-4 shadow-sm"
+              (click)="goBack()">
+              Back
+            </button>
+            &nbsp;
+            <button 
+              type="submit"
+              class="btn btn-primary rounded-pill px-4 shadow-sm">
+              🚀 Submit
+            </button>
+          </div>
+        </form>
+    </div>
+  </fieldset>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+.nav-item a{
+ color: #fff;
+}
+
+.nav-item a:active{
+ color: #ffc107;
+}
+
+.submenu {
+  list-style: none;
+  padding-left: 35px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.submenu.show {
+  max-height: 200px;
+}
+
+.submenu li a {
+  display: block;
+  padding: 6px 0;
+  color: #94a3b8;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.submenu li a:hover {
+  color: #fff;
+}
+
+/* Arrow rotate */
+.rotate {
+  transform: rotate(180deg);
+  transition: 0.3s;
+}

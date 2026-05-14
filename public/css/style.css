@@ -1,0 +1,1371 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
+:root {
+    --white: #ffffff;
+    --light-blue: #0075D1;
+    --dark-blue: #2654A1;
+    --violet: #6769D0;
+    --black: #1E1F1E;
+    --green: #00AC7D;
+    --gap:12.5px;
+    --font-family:"Inter Tight", sans-serif;
+}
+
+body{
+    font-family: var(--font-family);
+}
+
+a{
+    text-decoration: none;
+}
+p{
+    margin: 0;
+}
+
+/* ============ Header CSS Start ================ */
+body{
+    background-color: #F3F3F3;
+}
+header{
+    padding: 15px 0px;
+}
+header nav {
+    padding: 17px 0px !important;
+    background-color: #ffffff;
+    border-radius: 12px;
+}
+header nav .menu-main-menu-container{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 30px;
+}
+header nav ul{
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+header nav ul li a, header nav .contact_btn a, .banner-sec .banner-content a{
+    font-size: 15px;
+    line-height: 19px;
+    font-weight: 500;
+    
+    text-transform: capitalize;
+    color: var(--black);
+}
+header nav a.navbar-brand img{
+    width: 100%;
+    max-width: 155px;
+    height: 100%;
+    max-height: 36px;
+}
+header nav .contact_btn a, .banner-sec .banner-content a {
+    padding: 12px 36.5px;
+    background-color: var(--white);
+    border: 1px solid var(--light-blue);
+    border-radius: 6px;
+    box-shadow: unset !important;
+}
+header nav .contact_btn a:nth-child(1):hover{
+    background-color: var(--light-blue);
+    color: var(--white);
+
+}
+header nav .contact_btn a:nth-child(2) {
+    background-color: var(--light-blue);
+    color: var(--white);
+    box-shadow: unset;
+}
+header nav .contact_btn a:nth-child(2):hover{
+    background-color: var(--white);
+    color: var(--black);
+    border: 1px solid var(--light-blue);
+}
+
+header nav {
+    box-shadow: 1.563px 0.863px 6px 0 rgb(0 0 0 / 13%);
+}
+/* ============ Header CSS End ================ */
+
+/* ============ Banner CSS End ================ */
+.banner-sec{
+    padding-top: 120px;
+}
+.banner-sec .banner-inner {
+    background-image: url('../images/banner-img/banner-img.webp');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    border-radius: 12px;
+    max-height: 300px;
+}
+.banner-sec .banner-content {
+    padding: 75px 95px;
+    width: 100%;
+}
+.banner-sec .banner-content h1 {
+    font-size: 30px;
+    line-height: 40px;
+    text-transform: capitalize;
+    color: var(--white);
+}
+.banner-sec .banner-content h1 .bold{
+    font-weight: 700;
+}
+.banner-sec .banner-content a{
+    border: unset;
+    margin-top: 24px;
+}
+.banner-sec .banner-content a:hover{
+    background-color: var(--light-blue);
+    color: var(--white);
+
+}
+.banner-sec .banner-slider, 
+.lead-sec .lead-slider{
+    position: relative;
+}
+.banner-sec .banner-slider .owl-nav,
+.lead-sec .lead-slider .owl-nav {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.banner-sec .banner-slider .owl-nav button, 
+.lead-sec .lead-slider .owl-nav button.owl-prev{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.banner-sec .banner-slider .owl-nav button::before,
+.lead-sec .lead-slider .owl-nav button::before{
+    content: "";
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzYiIGhlaWdodD0iMzYiIHZpZXdCb3g9IjAgMCAzNiAzNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTgiIGN5PSIxOCIgcj0iMTgiIHRyYW5zZm9ybT0ibWF0cml4KC0xIDAgMCAxIDM2IDApIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNMTQuMjEyNCAxNy4xOTQyQzEzLjkyOTIgMTcuNDc3MyAxMy45MjkyIDE3Ljk1MDQgMTQuMjEyNCAxOC4yMzQzTDIwLjc0NjIgMjQuNzg0OUMyMS4wMzMgMjUuMDcxNyAyMS40OTgxIDI1LjA3MTcgMjEuNzg0MiAyNC43ODQ5QzIyLjA3MSAyNC40OTgxIDIyLjA3MSAyNC4wMzIzIDIxLjc4NDIgMjMuNzQ1NEwxNS43Njk0IDE3LjcxMzlMMjEuNzg0OSAxMS42ODMxQzIyLjA3MTcgMTEuMzk1NiAyMi4wNzE3IDEwLjkzMDUgMjEuNzg0OSAxMC42NDI5QzIxLjQ5ODEgMTAuMzU2MSAyMS4wMzMgMTAuMzU2MSAyMC43NDY5IDEwLjY0MjlMMTQuMjEyNCAxNy4xOTQyWiIgZmlsbD0iYmxhY2siLz4KPC9zdmc+Cg==);
+    display: block;
+    width: 36px;
+    height: 36px;
+}
+.banner-sec .banner-slider .owl-nav button.owl-prev{
+    left: 20px !important;
+}
+.banner-sec .banner-slider .owl-nav button.owl-next{
+    right: 20px !important;
+    rotate: 180deg;
+}
+.banner-sec .banner-slider .owl-nav button span, 
+.lead-sec .lead-slider .owl-nav button span{
+    visibility: hidden;
+}
+
+.banner-sec .lead-form {
+    background-image: url('../images/banner-img/banner-2.webp');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    max-height: 300px;
+    border-radius: 12px;
+}
+.banner-sec .lead-form-inner{
+    padding: 34px 24px;
+}
+.banner-sec .lead-form-inner h2{
+    
+    font-size: 28px;
+    line-height: 34px;
+    font-weight: 700;
+    padding: 0;
+    margin: 0;
+    color: var(--black);
+}
+.banner-sec .lead-form-inner a{
+    background-color: var(--light-blue);
+    color: var(--white);
+    padding: 12px 30px;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 500;
+    
+    margin-top: 24px;
+}
+.banner-sec .lead-form-inner a:hover{
+    background-color: var(--white);
+    border: 1px solid var(--light-blue);
+    color: var(--black);
+}
+.search-box .search-inner, header .search-inner{
+    background: #ffffff;
+    border-radius: 12px;
+}
+.search-box .search-inner {
+    padding: 30px;
+    box-shadow: 0px 0px 30px #00000021;
+}
+header .search-inner{
+    padding: 0;
+}
+.search-box .search-inner h2{
+    font-weight: 600;
+    color: var(--black);
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: 600;
+    
+    padding-bottom: 20px;
+}
+header .lead-form .location-dropdown {
+    background-color: #E8F5FF;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 6px;
+    width: 100%;
+    gap: 10px;
+    height: 44px;
+}
+.search-box .lead-form .location-dropdown {
+    background-color: #E8F5FF;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-radius: 6px;
+    width: 100%;
+    gap: 10px;
+}
+.search-box .input-group, header .search-inner .input-group {
+    flex-wrap: unset;
+    gap: 10px;
+    align-items: center;
+}
+
+.search-box .input-group .location-dropdown select,header .search-inner .input-group .location-dropdown select {
+    background-color: transparent;
+    border: unset;
+    outline: unset;
+    margin-right: 15px;
+}
+
+.search-box .input-group input, header .search-inner .input-group input {
+    width: 100%;
+    background: transparent;
+    border: unset;
+    outline: unset;
+    padding-left: 15px;
+    border-left: 1px solid #C2C7D9;
+}
+header .search-inner .input-group a {
+    padding: 10px 48px;
+    border-radius: 6px !important;
+    background-color: var(--light-blue);
+    outline: unset;
+    color: var(--white);
+    font-size: 16px;
+    line-height: 26px;
+    font-weight: 500;
+    border: unset;
+    height: 44px;
+}
+.search-box .input-group a{
+    padding: 18px 50px;
+    border-radius: 6px !important;
+    background-color: var(--light-blue);
+    outline: unset;
+    color: var(--white);
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 500;
+    
+    border: unset;
+} 
+/*========== Banner CSS End ================ */
+  
+/*========== Services CSS Start ================ */
+.services-sec{
+    padding: 60px 0px;
+}
+.services-sec .service-box{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 350px;
+    padding: 20px;
+    border-radius: 16px;
+}
+.services-sec .service-box h2{
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: 800;
+    
+    color: var(--white);
+    width: 100%;
+    text-transform: capitalize;
+}
+.services-sec .service-box-inner{
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-between;
+    height: 100%;
+}
+.services-sec  .service-box-inner .icon{
+    width: 100%;
+    display: flex;
+    align-items: end;
+    justify-content: end;
+}
+.services-sec .row{
+    justify-content: center;
+}
+/*========== Service CSS End ================ */
+
+    
+/*========== Category CSS Start ================ */
+.category .main-heading h2{
+    font-size: 32px;
+    line-height: 38px;
+    font-weight: 500;
+    color: var(--black);
+    padding-bottom: 24px;
+}
+.category.company .category-dropdown label{
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: 500;
+    color: var(--black);
+}
+.categories-sec .category-inner{
+    margin-top: 24px;
+}
+.categories-sec .category-name{
+    margin-top: 12px;
+}
+.categories-sec .category-name h3{
+    
+    font-size: 15px;
+    line-height: 18px;
+    font-weight: 500;
+    text-align: center;
+    color: var(--black);
+}
+/*========== Category CSS End ================ */
+
+/*========== Lead CSS Start ================ */
+.lead-sec .lead-inner{
+    background-color: var(--white);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 4px 4px 10px 0px #0000001A;
+    display: flex;
+    align-items: center;
+
+}
+.lead-sec .main-heading h2{
+    padding: 0;
+    margin: 0;
+    
+    font-size: 32px;
+    line-height: 42px;
+    font-weight: 500;
+    color: var(--black);
+}
+.lead-sec .main-heading h2 span.bold{
+    font-weight: 700;
+}
+
+.lead-section {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.lead-sec .lead-text h2 {
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 46px;
+    
+
+}
+
+.lead-sec .lead-text p {
+    margin-top: 10px;
+    font-size: 1.1rem;
+}
+
+.lead-sec .info-icons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+.lead-sec .info-icons .box {
+    position: relative;
+    width: calc(100% / 3 - 28px);
+}
+.lead-sec .info-icons .box::before{
+    content: "";
+    position: absolute;
+    display: block;
+    background-color: #1E1F1E1A;
+    height: 100%;
+    width: 1px;
+    left: -10px;
+}
+.lead-sec .info-icons .box:nth-child(2)::before,
+.lead-sec .info-icons .box:nth-child(3)::before{
+    display: none;
+}
+.lead-sec .info-icons .box:nth-child(3)::after{
+    right: -10px;
+}
+.lead-sec .info-icons .box::after {
+    content: "";
+    position: absolute;
+    display: block;
+    background-color: #1E1F1E1A;
+    height: 100%;
+    width: 1px;
+    right: -20px;
+    top: 0;
+}
+.lead-sec .info-icons div {
+    text-align: center;
+    margin-right: 20px;
+}
+
+.lead-sec .info-icons div:last-child {
+    margin-right: 0;
+}
+
+.lead-sec .info-icons i {
+    background-color: #0d6efd;
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+}
+
+.lead-sec .info-icons p {
+    margin-top: 16px;
+    
+    font-size: 15px;
+    line-height: 18px;
+    font-weight: 500;
+    color: var(--black);
+}
+
+.lead-sec .lead-slider .owl-nav button.owl-prev::before {
+    left: 36px;
+    position: absolute;
+}
+.lead-sec .lead-slider .owl-nav button.owl-next::before {
+    right: 36px;
+    position: absolute;
+    rotate: 180deg;
+}
+/*========== Lead Sec CSS End ================ */
+/*========== Business CSS Start ================ */
+.business-sec .container{
+    border-bottom: 1px solid #1F1E1F1A;
+}
+.business-sec.blog .container{
+    border-bottom: none !important;
+}
+.business-sec h2{
+    
+    font-size: 32px;
+    line-height: 38px;
+    font-weight: 500;
+    color: var(--black);
+}
+.business-sec .business-inner-box img{
+    border-radius: 12px;
+}
+.business-sec .business-inner-box .card-body p{
+    margin-top: 10px;
+    
+    font-size: 15px;
+    line-height: 24px;
+    font-weight: 600;
+    color: var(--black);
+}
+/*========== Business CSS End ================ */
+
+/*========== Breadcrumb CSS Start ================ */
+.owl-dots{
+    display: none;
+}
+.breadcrumb{
+    padding-top: 120px;
+}
+.breadcrumb .breadcrumb-inner{
+    padding: 64px 0px;
+    border-radius: 12px;
+    background-color: var(--light-blue);
+}
+.breadcrumb .breadcrumb-inner .heading h1{
+    font-size: 42px;
+    line-height: 46px;
+    font-weight: 600;
+    
+    color: var(--white);
+    text-align: center;
+}
+.breadcrumb .breadcrumb-inner ul{
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.breadcrumb .breadcrumb-inner ul li a{
+    font-size: 15px;
+    line-height: 19px;
+    font-weight: 400;
+    
+    color: var(--white);
+}
+.breadcrumb .breadcrumb-inner ul li{
+    position: relative;
+}
+.breadcrumb .breadcrumb-inner ul li::after{
+    content: "/";
+    position: absolute;
+    display: block;
+    height: 100%;
+    right: -10px;
+    color: var(--white);
+    top: 0;
+}
+.breadcrumb .breadcrumb-inner ul li:last-child::after{
+    display: none;
+}
+/*========== Breadcrumb CSS End ================ */
+
+/*========== Category CSS Start ================ */
+.category .category-inner .category-dropdown{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 20px;
+}
+.category .category-dropdown label{
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 600;  
+    color: var(--black);
+    margin: 0;
+}
+.category .category-dropdown label:nth-child(2){
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 600;  
+    color: var(--black);
+    margin: 0;
+}
+.category .category-dropdown select {
+    outline: unset;
+    border: unset;
+    --bs-form-select-bg-img: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+    background-color: transparent;
+    padding: 0 2.25rem 0 0;
+    box-shadow: unset;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 500;
+    color: var(--black);
+}
+.category ul{
+    gap: 10px;
+}
+.category ul li a{
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 500;
+    
+    color: var(--black);
+    padding: 11px 24px;
+    background-color: var(--white);
+    border-radius: 50px;
+}
+.category ul li a.active{
+    border: 1px solid var(--light-blue);
+    color: var(--light-blue);
+ 
+}
+
+.category .category-slider, .category .category-page{
+    padding-top: 40px;
+    position: relative;
+}
+.category .category-slider .owl-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.product .hover-content{
+    position: relative;
+}
+.product.one  .product-inner .heading {
+    bottom: 55px;
+    left: unset;
+    text-align: center;
+    transform: translate(0%, -125% );
+}   
+.product.one  .product-inner .heading h2{
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 500;
+    margin-top: 8px;
+    
+}
+.product .hover-content:hover .content-two{
+    opacity: 1;
+    transition: 0.4s all;
+}
+.product .hover-content .content-two{
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    transition: 0.4s all;
+}
+ .product .product-inner{
+    position: relative;
+ }
+ .product .product-inner .heading {
+    position: absolute;
+    z-index: 999;
+    bottom: 30px;
+    left: -126px;
+    transform: translate(50%, 50%);
+    width: 100%;
+    text-align: center;
+}
+.product .product-inner h2{
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: 500;
+    
+    color: var(--white);
+ }
+ .product .content-inner .short-des p{
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 500;
+    
+    color: var(--black);
+ }
+ .product .content-inner .content-one .image{
+    margin-top: 10px;
+
+ }
+ .product .content-inner .content-one .image img {
+    height: 320px;
+    background-color: #edeceb;
+    border-radius: 12px 12px 0px 0px;
+    /* width: 100%; */
+}
+.product .content-inner .content-one .heading {
+    padding: 14px 13px;
+    background-color: var(--white);
+    border-radius: 0px 0px 12px 12px;
+}
+ .product .content-inner .content-one .heading h2{
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 600;
+    
+    color: var(--black);
+ }
+ .product .content-inner .content-one{
+    border-radius: 12px;
+ }
+ .product .content-inner .content-two {
+    background-color: #edeceb;
+    border-radius: 12px;
+}
+ .product .content-inner .content-two .image img{
+    width: 100%;
+    height: 130px;
+ }
+ .product .content-inner .content-two .inner-content {
+    background: linear-gradient(178.71deg, rgba(15, 125, 216, 0) 1.06%, #0F7DD8 98.9%);
+    padding: 40px 15px 15px 15px;
+    border-radius: 0px 0px 12px 12px;
+}
+ .product .content-two .inner-content .heading h3{
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 600;
+    
+    color: var(--white);
+    padding-bottom: 9px;
+    margin: 0;
+ }
+ .product .content-two .inner-content .price p{
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 600;
+    
+    color: var(--light-blue);
+    padding-bottom: 9px;
+    margin: 0;
+ }
+ .product .content-two .inner-content .location p,
+ .product .content-two .inner-content .short-des p{
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 400;
+    
+    color: var(--white);
+    padding-bottom: 9px;
+    margin: 0;
+ }
+ .product .content-two .inner-content .button-group{
+    display: flex;
+    gap: 10px;
+ }
+ .product .content-two .inner-content .button-group a {
+    background-color: var(--white);
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: 500;
+    color: var(--black);
+    margin: 0;
+    padding: 12px 24px;
+    border-radius: 6px;
+    text-transform: capitalize;
+    width: 100%;
+}
+.product .content-two .inner-content .button-group a:hover{
+    background-color: var(--light-blue);
+    color: var(--white);
+    border: 1px solid var(--white);
+}
+ .product .content-two .inner-content .button-group a:last-child{
+    background-color: var(--light-blue);
+    padding: 12px 24px;
+    border-radius: 6px;
+    color: var(--white);
+    border: 1px solid var(--white);
+ }
+ .product .content-two .inner-content .button-group a:last-child:hover{
+    background-color: var(--white);
+    color: var(--black);
+ }
+ .category{
+    position: relative;
+    padding-top: 30px;
+ }
+
+
+.category .category-slider .owl-nav { 
+    position: absolute;
+    top: 50%; 
+    left: 0;
+    transform: translateY(-50%); 
+    display: flex; 
+    justify-content: space-between;
+    width: 100%; 
+}
+
+.category .category-slider .owl-nav .owl-prev,
+.category .category-slider .owl-nav .owl-next {
+    background-color: transparent; 
+    color: #fff;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.category .owl-nav button span {
+    display: none;
+}
+.category .owl-nav button::before {
+    content: "";
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzYiIGhlaWdodD0iMzYiIHZpZXdCb3g9IjAgMCAzNiAzNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTgiIGN5PSIxOCIgcj0iMTgiIHRyYW5zZm9ybT0ibWF0cml4KC0xIDAgMCAxIDM2IDApIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNMTQuMjEyNCAxNy4xOTQyQzEzLjkyOTIgMTcuNDc3MyAxMy45MjkyIDE3Ljk1MDQgMTQuMjEyNCAxOC4yMzQzTDIwLjc0NjIgMjQuNzg0OUMyMS4wMzMgMjUuMDcxNyAyMS40OTgxIDI1LjA3MTcgMjEuNzg0MiAyNC43ODQ5QzIyLjA3MSAyNC40OTgxIDIyLjA3MSAyNC4wMzIzIDIxLjc4NDIgMjMuNzQ1NEwxNS43Njk0IDE3LjcxMzlMMjEuNzg0OSAxMS42ODMxQzIyLjA3MTcgMTEuMzk1NiAyMi4wNzE3IDEwLjkzMDUgMjEuNzg0OSAxMC42NDI5QzIxLjQ5ODEgMTAuMzU2MSAyMS4wMzMgMTAuMzU2MSAyMC43NDY5IDEwLjY0MjlMMTQuMjEyNCAxNy4xOTQyWiIgZmlsbD0iYmxhY2siLz4KPC9zdmc+Cg==);
+    display: block;
+    width: 36px;
+    height: 36px;
+    left: -18px;
+    position: absolute;
+    top: -17px;
+}
+.category .category-slider .owl-nav .owl-next{
+    rotate: 180deg;
+}
+/*========== Category CSS End ================ */
+
+/*========== PAMR CSS Start ================ */
+.pamr-industries{
+    padding-top: 80px;
+}
+.pamr-industries .industry-inner {
+    padding: 60px 0px 30px 0px;
+    border-bottom: 3px solid #1F1E1F1A;
+}
+.pamr-industries .industry-inner .main-heading h1{
+    font-size: 42px;
+    line-height: 46px;
+    font-weight: 600;
+    color: var(--black);
+  
+    margin: 0;
+}
+.pamr-industries .industry-inner .main-heading {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    align-items: center;
+    padding-bottom: 32px;
+}
+.pamr-industries .industry-inner .main-heading img{
+
+}
+.pamr-industries .box-content .content-box-inner{
+    display: flex;
+    align-items: start;
+    gap: 12px;
+}
+.pamr-industries .content-box-inner .content h3{
+    font-size: 15px;
+    line-height: 24px;
+    font-weight: 700;
+    color: var(--black);
+    padding-bottom: 10px;
+    margin: 0;
+    text-transform: capitalize;
+}
+.pamr-industries .content-box-inner .content p, 
+.pamr-industries .content-box-inner .content p a {
+    font-size: 13px;
+    line-height: 23px;
+    font-weight: 400;
+    color: var(--black);
+    padding-bottom: 0;
+    margin: 0;
+}
+.pamr-industries .industry-inner .row:nth-child(2){
+    align-items: center;
+}
+.pamr-industries .button-group {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--white);
+    border-radius: 12px;
+}
+
+.pamr-industries .button-group .group-inner{
+    width: 100%;
+}
+.pamr-industries .button-group .group-inner a {
+    width: 100%;
+    text-align: center;
+    background-color: var(--light-blue);
+    color: var(--white);
+    display: block;
+    margin-bottom: 10px;
+    height: 40px;
+    padding: 10px 0px;
+    border-radius: 6px;
+    font-size: 16px;
+    line-height: 20px;
+    text-transform: capitalize;
+}
+.pamr-industries .button-group .group-inner a:hover{
+    background-color: var(--white);
+    border: 1px solid var(--light-blue);
+    color: var(--black);
+}
+.pamr-industries .button-group .group-inner a:nth-child(2){
+    background-color: var(--white);
+    border: 1px solid var(--light-blue);
+    color: var(--black);
+}
+
+.pamr-industries .button-group .group-inner a:nth-child(2):hover{
+    background-color: var(--light-blue);
+    border: 1px solid var(--light-blue);
+    color: var(--white);
+}
+.left-right{
+    padding-bottom: 60px;
+}
+.left-right .left-right-inner .main-heading h2{
+    font-size: 32px;
+    line-height: 38px;
+    font-weight: 500;
+    color: var(--black);
+}
+.left-right .left-right-inner .row{
+    align-items: center;
+}
+.left-right .left-right-inner .description p {
+    font-size: 15px;
+    line-height: 24px;
+    color: #555555;
+    font-weight: 400;
+    text-transform: capitalize;
+    margin-bottom: 24px;
+}
+
+
+/*========== PAMR CSS End ================ */
+
+/*========== Deals CSS Start ================ */
+.deals-sec{
+    padding: 60px 0px;
+}
+.deals-sec .main-heading h2{
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: 500;
+    color: var(--black);
+    padding-bottom: 20px;
+}
+.deals-sec .deals-content-inner {
+    background-color: var(--white);
+    padding: 0px 20px 30px 20px;
+    border-radius: 12px;
+}
+.deals-sec .deals-content-inner .row:nth-child(1){
+    padding-top: 16px;
+    padding-bottom: 16px;
+    border-bottom: 2.5px solid #0000001A
+}
+.deals-sec .deals-content-inner .row{
+    border-bottom: 1px solid #0000001A;
+}
+.deals-sec .deals-content-inner .row:last-child{
+    border: unset;
+}
+.deals-sec .deals-content-inner .box-content h3{
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: 600;
+    color: var(--black);
+}
+.deals-sec .deals-content-inner .box-content p{
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    color: #555555;
+}
+
+/*========== Deals CSS End ================ */
+
+/*========== FACTSHEET CSS start ================ */
+.factsheet{
+    padding-bottom: 60px;
+}
+.factsheet .factsheet-inner{
+    background-color: var(--white);
+    border-radius: 12px;
+    padding: 40px 48px;
+}
+.factsheet .factsheet-inner .main-heading{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 0px 0px 20px 0px;
+    border-bottom: 1px solid #0000001A
+}
+ .factsheet-inner .main-heading h2{
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: 700;
+    color: var(--black);
+}
+.factsheet-inner .bottom-content{
+    padding-top: 40px;
+    padding-bottom: 0px;
+    border-bottom: 1px solid #0000001A
+}
+.factsheet-inner .bottom-content:last-child{
+    border: unset;
+}
+.factsheet-inner .bottom-content .title h3{
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: 600;
+    color: var(--black);
+    text-transform: capitalize;
+}
+.factsheet-inner .content-inner{
+    padding-top: 16px;
+}
+.factsheet-inner .content-inner .information{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    padding-bottom: 16px;
+}
+
+.factsheet-inner .content-inner .information .name{
+    width: 15%;
+}
+.factsheet-inner .content-inner .information .content-name{
+    width: 80%;
+}
+.factsheet-inner .content-inner .information h4{
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 400;
+    color: var(--black);
+}
+.factsheet-inner .content-inner .information p{
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 400;
+    color: #555555;
+}
+.factsheet-inner .content-inner .information:last-child{
+    padding-bottom: 0;
+}
+/*========== FACTSHEET CSS End ================ */
+
+
+/*========== Contact CSS Start ================ */
+
+.contact-us{
+    padding: 40px 0px 100px 0px;
+}
+.contact-us .all-content{
+    padding-right: 100px;
+}
+.contact-us .inner-content .main-heading{
+    padding-bottom: 40px;
+}
+.contact-us .inner-content .main-heading h2{
+    font-size: 42px;
+    line-height: 46px;
+    font-weight: 600;
+    color: var(--black);
+}
+.contact-us .inner-content .contact-name{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.contact-us .inner-content .contact-name h3{
+    font-size: 15px;
+    line-height: 24px;
+    font-weight: 700;
+    color: var(--black);
+    margin: 0;
+}
+.contact-us .inner-content .address p{
+    color: #1E1F1ECC;
+    font-size: 15px;
+    line-height: 24px;
+    font-weight: 400;
+    margin: 0;
+}
+.contact-us .inner-content{
+    border-bottom: 1px solid #0000001A
+}
+.contact-us .inner-content-btn{
+    padding-top: 32px;
+    display: flex;
+    gap: 11px;
+    padding-bottom: 24px;
+}
+.contact-us .inner-content-btn a{
+    padding: 18px 0px;
+    width: 100%;
+    background-color: var(--light-blue);
+    color: var(--white);
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 500;
+    text-transform: capitalize;
+    box-shadow: unset;
+    outline: unset;
+}
+.contact-us .inner-content-btn a:hover{
+    border: 1px solid var(--light-blue);
+    background-color: var(--white);
+    color: var(--black);
+}
+.contact-us .inner-content-btn a:nth-child(2){
+    background-color: var(--white);
+    border: 1px solid var(--light-blue);
+    color: var(--black);
+    box-shadow: unset;
+    outline: unset;
+}
+.contact-us .inner-content-btn a:nth-child(2):hover{
+    background-color: var(--light-blue);
+    color: var(--white);   
+}
+.contact-us .social-icon .social-inner{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+} 
+.contact-us .social-icon .social-inner p{
+    margin: 0;
+    font-size: 15px;
+    line-height: 24px;
+    font-weight: 700;
+    color: var(--black);
+}
+.contact-us .contact-img{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    padding: 40px;
+    border-radius: 12px;
+}
+.contact-us .contact-img h2{
+    font-size: 42px;
+    line-height: 52px;
+    font-weight: 600;
+    color: var(--black);
+    padding-bottom: 38px    ;
+}
+.contact-us .contact-img a{
+    padding: 18px 42px;
+    background-color: var(--light-blue);
+    color: var(--white);
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 500;
+    text-transform: capitalize;
+    box-shadow: unset;
+    outline: unset;
+}
+.contact-us .contact-img a:hover{
+    border: 1px solid var(--light-blue);
+    background-color: var(--white);
+    color: var(--black);
+}
+/*========== Contact CSS End ================ */
+/*========== Footer CSS Start ================ */
+
+footer{
+    background-color: #1E1F1E;
+    padding-top: 60px;
+}
+footer .footer-top .content{
+    padding-top: 24px;
+}
+footer .footer-top .content p{
+    
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 500;
+    color: var(--white);
+}
+.footer-top .heading h2{
+    
+    font-size: 18px;
+    line-height: 20px;
+    font-weight: 700;
+    color: var(--white);
+    padding-bottom: 24px;
+    margin: 0;
+}
+.footer-top ul.menu, .footer-top .address ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.footer-top ul.menu li{
+    margin-bottom: 13px;
+}
+.footer-top ul.menu li a, 
+.footer-top .address ul li a, 
+.footer-top .address ul li{
+    
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 500;
+    color: var(--white);
+}
+.footer-top ul.menu li a:hover{
+    color: var(--light-blue);
+}
+.footer-top .address ul li{
+    margin-bottom: 13px;
+}
+.footer-top .address ul li {
+    display: flex;
+    gap: 10px;
+}
+.footer-top .address ul li:nth-child(1) svg{
+    width: 42px;
+    height: 42px;
+}
+.footer-top .address ul li:nth-child(2) svg{
+    margin-right: 10px;
+}
+.footer-bottom {
+    padding: 14px 0px;
+    border-top: 1px solid #FFFFFF1A;
+}
+.footer-bottom p, 
+.footer-bottom .footer-bottom-content .terms a, 
+.footer-bottom-content .terms {
+    
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    color: var(--white);
+    opacity: 0.5;
+}
+.footer-bottom .footer-bottom-content .terms a:hover{
+    color: var(--light-blue);
+}
+.footer-bottom .footer-bottom-content .terms ul, .footer-bottom .footer-bottom-content {
+    display: flex;
+    justify-content: end;
+    gap: 40px;
+    list-style: none;
+    align-items: center;
+}
+.footer-bottom .footer-bottom-content .terms a{
+    opacity: 0.5;
+}
+.footer-bottom .footer-bottom-content ul{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 10px;
+    list-style: none;
+}
+.footer-bottom .footer-bottom-content .terms ul li{
+    position: relative;
+}
+.footer-bottom .footer-bottom-content .terms ul li::after {
+    content: "";
+    position: absolute;
+    display: block;
+    background-color: var(--white);
+    opacity: 0.5;
+    width: 1px;
+    height: 100%;
+    top: 0;
+    right: -20px;
+}
+
+/*========== Responsive CSS Start ================ */
+
+@media screen and (max-width: 991px) {
+    header nav .navbar-toggler:focus{
+        box-shadow: unset
+    }
+    header .search-inner {
+        padding: 0;
+        margin-bottom: 20px;
+    }
+    header nav .menu-main-menu-container{
+        padding-top: 16px;
+        display: block;
+    }
+    header nav .menu-main-menu-container .contact_btn{
+        text-align: start;
+        padding-top: 16px;
+    }
+    header nav ul {
+        gap: 16px;
+    }
+    header nav ul li{
+        width: 100%;
+    }
+  }
+  @media screen and (max-width:768px) {
+    .pamr-industries .industry-inner .main-heading h1 {
+        font-size: 30px;
+        line-height: 40px;
+    }
+    .pamr-industries .industry-inner {
+        padding: 30px 0px;
+    }
+    .deals-sec{
+        padding: 30px 0px;
+    }
+    category .main-heading h2 {
+        font-size: 26px;
+        line-height: 32px;
+    }
+    .category.company .category-dropdown label {
+        font-size: 20px;
+        line-height: 26px;
+    }    
+    .deals-sec .deals-content-inner {
+        margin-bottom: 24px;
+    }
+    .factsheet-inner .bottom-content{
+        padding-bottom: 0;
+    }
+  }
+  @media screen and (max-width:480px) {
+    .banner-sec .banner-content h1 br{
+        display: none;
+    }
+    .banner-sec .banner-content h1{
+    font-size: 24px;
+    line-height: 34px;
+    }
+    .banner-sec .banner-content a{
+        margin-top: 12px;
+    }
+    .input-group{
+        display: block;
+    }
+    .search-box .input-group a{
+        display: flex;
+        margin-top: 14px;
+    }
+    .search-box .lead-form .location-dropdown{
+        display: block;
+        height: 100%;
+    }
+    .search-box .input-group input{
+        border-left: 0px;
+        margin-top: 10px;
+        padding-left: 0px;
+    }
+    .footer-bottom .footer-bottom-content .terms ul, .footer-bottom .footer-bottom-content{
+        display: block;
+        text-align: center;
+    }
+    .footer-bottom .footer-bottom-content ul {
+
+        justify-content: center;
+    }
+    .footer-bottom .footer-bottom-content .terms ul li, .footer-bottom p{
+        margin-bottom: 10px;
+    }
+
+    .category .owl-nav button::before {
+        left: 4px;
+        top: -17px;
+    }
+    .product .product-inner .heading {
+        left: -150px;
+
+    }
+    .breadcrumb .breadcrumb-inner .heading h1 {
+        font-size: 28px;
+        line-height: 38px;
+    }
+    .category ul {
+        justify-content: center;
+    }
+    .category .category-slider {
+        padding-top: 20px;
+    }
+  }

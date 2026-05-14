@@ -1,0 +1,138 @@
+<div class="main-content">
+   <div class="d-flex mb-4 ">
+      <div class="col-md-4 col-xl-6 ">
+        <input type="text" class="form-control me-2"
+        placeholder="Search..." >
+      </div>
+      <div class="col-md-6 col-xl-6 me-2 px-2">
+        <select class="form-select w-25"
+          >
+          <option value="">All</option>
+          <option value="active">Active</option>
+          <option value="draft">Draft</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row g-1 py-2">
+      <div class="col-xl-3 col-md-6">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="card kpi-card  text-success border-0 rounded-4 shadow-lg">
+
+                <div class="card-body position-relative">
+                 <small class="opacity-75">Total Products</small>
+                <i class="bi bi-arrow-repeat fs-6 flip-trigger me-2"></i>
+                  <h2 class="fw-bold mt-2">
+                    <!-- {{ totalProducts || 0 }} -->
+                      110
+                  </h2>
+
+                  <a routerLink="/seller/products"
+                    class="btn btn-success p-1"
+                    (click)="$event.stopPropagation()">
+                    View All
+                  </a>
+                  <!-- <i class="bi bi-box-seam kpi-icon fs-2"></i> -->
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-3 col-md-6">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="card kpi-card  text-primary border-0 rounded-4 shadow-lg">
+
+                <div class="card-body position-relative">
+
+                  <small class="opacity-75">Total Seller</small>
+
+                
+                  <i class="bi bi-arrow-repeat fs-6 flip-trigger me-2"></i>
+
+                  
+                  <h2 class="fw-bold mt-2">
+                     101
+                  </h2>
+
+                  <a routerLink="/seller/products"
+                    class="btn btn-success p-1"
+                    (click)="$event.stopPropagation()">
+                    View All
+                  </a>
+                  <!-- <i class="bi bi-box-seam kpi-icon fs-2"></i> -->
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-3 col-md-6">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="card kpi-card  text-danger border-0 rounded-4 shadow-lg">
+
+                <div class="card-body position-relative">
+
+                  <small class="opacity-75">Total Orders</small>
+
+                
+                  <i class="bi bi-arrow-repeat fs-6 flip-trigger me-2"></i>
+
+                  
+                  <h2 class="fw-bold mt-2">
+                     100
+                  </h2>
+
+                  <a routerLink="/seller/products"
+                    class="btn btn-success p-1"
+                    (click)="$event.stopPropagation()">
+                    View All
+                  </a>
+                  <!-- <i class="bi bi-box-seam kpi-icon fs-2"></i> -->
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-3 col-md-6">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="card kpi-card  text-success border-0 rounded-4 shadow-lg">
+
+                <div class="card-body position-relative">
+                 <small class="opacity-75">Total Enquiries</small>
+                  <i class="bi bi-arrow-repeat fs-6 flip-trigger me-2"></i>
+                  <h2 class="fw-bold mt-2">
+                     150
+                  </h2>
+
+                  <a routerLink="/seller/products"
+                    class="btn btn-success p-1"
+                    (click)="$event.stopPropagation()">
+                    View All
+                  </a>
+                  <!-- <i class="bi bi-box-seam kpi-icon fs-2"></i> -->
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- </div> -->

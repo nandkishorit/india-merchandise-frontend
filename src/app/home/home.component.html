@@ -1,0 +1,553 @@
+<section class="banner-sec">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-8 col-sm-8 col-12">
+                <div class="banner-slider owl-carousel owl-loaded owl-drag">
+
+                    <div class="banner-inner item">
+                        <div class="banner-content">
+                            <h1>Looking for <span class="bold">product and <br> services</span> you are in the <br>
+                                <span class="bold">right place.</span></h1>
+                            <a href="javascript:void(0);" class="btn">Get a Best Deal</a>
+                        </div>
+                    </div>
+
+                    <!-- <div class="banner-inner item">
+                        <div class="banner-content">
+                            <h1>Looking for <span class="bold">product and <br>  services</span> you are in the <br> <span class="bold">right place.</span></h1>
+                            <a href="javascript:void(0);" class="btn">Get a Best Deal</a>
+                        </div>
+                    </div>
+
+                    <div class="banner-inner item">
+                        <div class="banner-content">
+                            <h1>Looking for <span class="bold">product and <br>  services</span> you are in the <br> <span class="bold">right place.</span></h1>
+                            <a href="javascript:void(0);" class="btn">Get a Best Deal</a>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-4 col-12">
+                <div class="lead-form">
+                    <div class="lead-form-inner">
+                        <h2>Looking for <br> a lead.</h2>
+                        <a href="javascript:void(0);" class="btn">Sign Up Now!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="search-box mt-4">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-sm-12 col-12">
+                <div class="search-inner">
+                    <div class="section-heading">
+                        <h2>Tell us what you Need</h2>
+                    </div>
+                    <form class="lead-form" (ngSubmit)="fetchProducts()">
+                        <div class="input-group">
+                            <div class="location-dropdown">
+                                <span class="icon">
+                                    <svg width="16" height="18" viewBox="0 0 16 18" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12.9964 2.22983C11.5585 0.791898 9.64663 0 7.61312 0C5.5796 0 3.66773 0.791898 2.22983 2.22983C0.791898 3.6678 0 5.5796 0 7.61308C0 11.7268 3.88963 15.1484 5.97929 16.9866C6.26968 17.242 6.52046 17.4626 6.72025 17.6492C6.97056 17.8831 7.29186 18 7.61308 18C7.93437 18 8.2556 17.8831 8.50595 17.6492C8.70574 17.4626 8.95651 17.242 9.2469 16.9866C11.3366 15.1484 15.2262 11.7268 15.2262 7.61308C15.2262 5.5796 14.4343 3.6678 12.9964 2.22983ZM8.55046 16.1949C8.2537 16.456 7.99745 16.6814 7.78616 16.8788C7.68909 16.9694 7.53707 16.9694 7.43997 16.8788C7.22872 16.6814 6.97243 16.4559 6.67567 16.1949C4.71113 14.4668 1.05434 11.25 1.05434 7.61312C1.05434 3.99665 3.99654 1.05445 7.61305 1.05445C11.2295 1.05445 14.1717 3.99665 14.1717 7.61312C14.1718 11.25 10.515 14.4668 8.55046 16.1949Z"
+                                            fill="#1E1F1E" />
+                                        <path
+                                            d="M7.61282 3.97046C5.76286 3.97046 4.25781 5.47547 4.25781 7.32543C4.25781 9.1754 5.76286 10.6804 7.61282 10.6804C9.46279 10.6804 10.9678 9.1754 10.9678 7.32543C10.9678 5.47547 9.46279 3.97046 7.61282 3.97046ZM7.61282 9.62596C6.34427 9.62596 5.31222 8.59391 5.31222 7.3254C5.31222 6.05689 6.34427 5.02483 7.61282 5.02483C8.88137 5.02483 9.91338 6.05689 9.91338 7.3254C9.91338 8.59391 8.88137 9.62596 7.61282 9.62596Z"
+                                            fill="#1E1F1E" />
+                                    </svg>
+                                </span>
+                                <select name="location" [(ngModel)]="location">
+                                    <option value="Noida" >Noida</option>
+                                    <option value="Delhi">Delhi</option>
+                                    <option value="Gurgaon">Gurgaon</option>
+                                    <option value="Indore">Indore</option>
+                                    <option value="Jaipur">Jaipur</option>
+                                </select>
+                                <input type="text" placeholder="Enter Product / Service Name"
+                                    [(ngModel)]="searchProduct" name="searchProduct">
+                            </div>
+                            <button type="submit" class="submit-btn">Search</button>
+
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="services-sec">
+    <div class="container-fluid">
+        <div class="row">
+            <div *ngFor="let category of categories" class="col-lg col-sm-6 col-12 mt-4">
+                <div class="service-box" style="background-image: url('images/service-img/service-5.webp');">
+                    <div class="service-box-inner">
+                        <h2>{{category.category_name}}</h2>
+                        <div class="icon">
+                            <a href="/category?id={{category.category_name}}">
+                                <svg width="42" height="42" viewBox="0 0 42 42" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="42" height="42" rx="21" fill="white" />
+                                    <path
+                                        d="M28 27.9993L27.9834 15.0469C27.9827 14.4856 27.5144 14.0173 26.9537 14.0173L14 14.0007M26.7599 15.2592L14.2486 27.7704"
+                                        stroke="black" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =================== Categories Sec ==================== -->
+<section class="categories-sec pb-5">
+    <div class="container-fluid">
+        <div class="main-heading">
+            <span>Lead by Categories</span>
+        </div>
+        <div class="row">
+            <div class="col-lg-1 col-sm-3 col-4">
+                <div class="category-inner">
+                    <a href="javascript:void(0);">
+                        <div class="category-img">
+                            <img src="images/category-img/category-img.png" alt="">
+                        </div>
+                        <div class="category-name">
+                            <h3>Construction</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-1 col-sm-3 col-4">
+                <div class="category-inner">
+                    <a href="javascript:void(0);">
+                        <div class="category-img">
+                            <img src="images/category-img/category-img.png" alt="">
+                        </div>
+                        <div class="category-name">
+                            <h3>Car Hire</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-1 col-sm-3 col-4">
+                <div class="category-inner">
+                    <a href="javascript:void(0);">
+                        <div class="category-img">
+                            <img src="images/category-img/category-img.png" alt="">
+                        </div>
+                        <div class="category-name">
+                            <h3>Car Hire</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-1 col-sm-3 col-4">
+                <div class="category-inner">
+                    <a href="javascript:void(0);">
+                        <div class="category-img">
+                            <img src="images/category-img/category-img.png" alt="">
+                        </div>
+                        <div class="category-name">
+                            <h3>Car Hire</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-1 col-sm-3 col-4">
+                <div class="category-inner">
+                    <a href="javascript:void(0);">
+                        <div class="category-img">
+                            <img src="images/category-img/category-img.png" alt="">
+                        </div>
+                        <div class="category-name">
+                            <h3>Car Hire</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-1 col-sm-3 col-4">
+                <div class="category-inner">
+                    <a href="javascript:void(0);">
+                        <div class="category-img">
+                            <img src="images/category-img/category-img.png" alt="">
+                        </div>
+                        <div class="category-name">
+                            <h3>Car Hire</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-1 col-sm-3 col-4">
+                <div class="category-inner">
+                    <a href="javascript:void(0);">
+                        <div class="category-img">
+                            <img src="images/category-img/category-img.png" alt="">
+                        </div>
+                        <div class="category-name">
+                            <h3>Car Hire</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-1 col-sm-3 col-4">
+                <div class="category-inner">
+                    <a href="javascript:void(0);">
+                        <div class="category-img">
+                            <img src="images/category-img/category-img.png" alt="">
+                        </div>
+                        <div class="category-name">
+                            <h3>Car Hire</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-1 col-sm-3 col-4">
+                <div class="category-inner">
+                    <a href="javascript:void(0);">
+                        <div class="category-img">
+                            <img src="images/category-img/category-img.png" alt="">
+                        </div>
+                        <div class="category-name">
+                            <h3>Car Hire</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-1 col-sm-3 col-4">
+                <div class="category-inner">
+                    <a href="javascript:void(0);">
+                        <div class="category-img">
+                            <img src="images/category-img/category-img.png" alt="">
+                        </div>
+                        <div class="category-name">
+                            <h3>Car Hire</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-1 col-sm-3 col-4">
+                <div class="category-inner">
+                    <a href="javascript:void(0);">
+                        <div class="category-img">
+                            <img src="images/category-img/category-img.png" alt="">
+                        </div>
+                        <div class="category-name">
+                            <h3>Car Hire</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-1 col-sm-3 col-4">
+                <div class="category-inner">
+                    <a href="javascript:void(0);">
+                        <div class="category-img">
+                            <img src="images/category-img/category-img.png" alt="">
+                        </div>
+                        <div class="category-name">
+                            <h3>Car Hire</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-1 col-sm-3 col-4">
+                <div class="category-inner">
+                    <a href="javascript:void(0);">
+                        <div class="category-img">
+                            <img src="images/category-img/category-img.png" alt="">
+                        </div>
+                        <div class="category-name">
+                            <h3>Car Hire</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-1 col-sm-3 col-4">
+                <div class="category-inner">
+                    <a href="javascript:void(0);">
+                        <div class="category-img">
+                            <img src="images/category-img/category-img.png" alt="">
+                        </div>
+                        <div class="category-name">
+                            <h3>Car Hire</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-1 col-sm-3 col-4">
+                <div class="category-inner">
+                    <a href="javascript:void(0);">
+                        <div class="category-img">
+                            <img src="images/category-img/category-img.png" alt="">
+                        </div>
+                        <div class="category-name">
+                            <h3>Car Hire</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-1 col-sm-3 col-4">
+                <div class="category-inner">
+                    <a href="javascript:void(0);">
+                        <div class="category-img">
+                            <img src="images/category-img/category-img.png" alt="">
+                        </div>
+                        <div class="category-name">
+                            <h3>Car Hire</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-1 col-sm-3 col-4">
+                <div class="category-inner">
+                    <a href="javascript:void(0);">
+                        <div class="category-img">
+                            <img src="images/category-img/category-img.png" alt="">
+                        </div>
+                        <div class="category-name">
+                            <h3>Car Hire</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-1 col-sm-3 col-4">
+                <div class="category-inner">
+                    <a href="javascript:void(0);">
+                        <div class="category-img">
+                            <img src="images/category-img/category-img.png" alt="">
+                        </div>
+                        <div class="category-name">
+                            <h3>Car Hire</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-1 col-sm-3 col-4">
+                <div class="category-inner">
+                    <a href="javascript:void(0);">
+                        <div class="category-img">
+                            <img src="images/category-img/category-img.png" alt="">
+                        </div>
+                        <div class="category-name">
+                            <h3>Car Hire</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+
+            <div class="col-lg-1 col-sm-3 col-4">
+                <div class="category-inner">
+                    <a href="javascript:void(0);">
+                        <div class="category-img">
+                            <img src="images/category-img/category-img.png" alt="">
+                        </div>
+                        <div class="category-name">
+                            <h3>Car Hire</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-1 col-sm-3 col-4">
+                <div class="category-inner">
+                    <a href="javascript:void(0);">
+                        <div class="category-img">
+                            <img src="images/category-img/category-img.png" alt="">
+                        </div>
+                        <div class="category-name">
+                            <h3>Car Hire</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-1 col-sm-3 col-4">
+                <div class="category-inner">
+                    <a href="javascript:void(0);">
+                        <div class="category-img">
+                            <img src="images/category-img/category-img.png" alt="">
+                        </div>
+                        <div class="category-name">
+                            <h3>Car Hire</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-1 col-sm-3 col-4">
+                <div class="category-inner">
+                    <a href="javascript:void(0);">
+                        <div class="category-img">
+                            <img src="images/category-img/category-img.png" alt="">
+                        </div>
+                        <div class="category-name">
+                            <h3>Car Hire</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-1 col-sm-3 col-4">
+                <div class="category-inner">
+                    <a href="javascript:void(0);">
+                        <div class="category-img">
+                            <img src="images/category-img/category-img.png" alt="">
+                        </div>
+                        <div class="category-name">
+                            <h3>Car Hire</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- =================== Leading Sec ==================== -->
+<section class="lead-sec">
+    <div class="container-fluid my-5">
+        <div class="row align-items-center lead-section">
+            <div class="col-lg-5 .col-md-5 .col-12">
+                <div class="lead-text">
+                    <h2><strong>We Delivered Lead.</strong> Connect for Quotes and Direct Call Between
+                        <strong>Sellers</strong> and <strong>Buyers</strong></h2>
+                    <p>Trusted Platform for Safe & Secure Connections</p>
+                    <div class="info-icons mt-4">
+                        <div class="box">
+                            <svg width="42" height="42" viewBox="0 0 42 42" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect width="42" height="42" rx="21" fill="#0075D1" />
+                            </svg>
+                            <p>Trusted Platform</p>
+                        </div>
+                        <div class="box">
+                            <svg width="42" height="42" viewBox="0 0 42 42" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect width="42" height="42" rx="21" fill="#0075D1" />
+                            </svg>
+                            <p>Safe & Secure</p>
+                        </div>
+                        <div class="box">
+                            <svg width="42" height="42" viewBox="0 0 42 42" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect width="42" height="42" rx="21" fill="#0075D1" />
+                            </svg>
+                            <p>Quick Assistance</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-7 col-md-7 col-12 px-5">
+                <div class="lead-slider owl-carousel owl-theme">
+                    <div class="item">
+                        <img src="/images/banner-img/banner-3.webp" alt="Handshake Image 1">
+                    </div>
+                    <div class="item">
+                        <img src="/images/banner-img/banner-3.webp" alt="Handshake Image 2">
+                    </div>
+                    <div class="item">
+                        <img src="/images/banner-img/banner-3.webp" alt="Handshake Image 3">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- =================== Business Sec ==================== -->
+<section class="business-sec ">
+    <div class="container-fluid my-5 pb-5">
+        <h2 class="mb-4">Business News</h2>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="business-inner-box">
+                    <img src="images/card.png" class="card-img-top" alt="News Image">
+                    <div class="card-body">
+                        <p class="card-text">
+                            Bibendum Elementum Tempus Fames Neque. Ut Eu Vitae Sit Ultrices Ac. Pulvinar Risus M...
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="business-inner-box">
+                    <img src="images/card.png" class="card-img-top" alt="News Image">
+                    <div class="card-body">
+                        <p class="card-text">
+                            Imperdiet Euismod Gravida Velit Enim Sed Mattis Vulputate Bibendum Enim. Tellus Eni...
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="business-inner-box">
+                    <img src="images/card.png" class="card-img-top" alt="News Image">
+                    <div class="card-body">
+                        <p class="card-text">
+                            A Mattis Leo Integer Elementum Pretium Risus Ac Nunc. Felis Diam Hac Fusce Et Arcu.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="business-inner-box">
+                    <img src="images/card.png" class="card-img-top" alt="News Image">
+                    <div class="card-body">
+                        <p class="card-text">
+                            Id Elementum Eu Pharetra Nunc Quam Magna Mattis Nisl. Quisque Sit Enim Lectus.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- =================== Blog Sec ==================== -->
+<section class="business-sec blog">
+    <div class="container-fluid my-5 pb-5">
+        <h2 class="mb-4">Blog</h2>
+        <div class="row">
+
+            <div *ngFor="let blog of blogs" class="col-md-3">
+                <div class="business-inner-box">
+                    <img src="/images/card.png" class="card-img-top" alt="News Image">
+                    <div class="card-body">
+                        <p class="card-text">
+                            {{blog.title}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,67 @@
+<header class="navbar navbar-expand-lg header shadow-sm">
+
+  <div class="container-fluid">
+    <h6 class="mb-0 fw-semibold py-4">
+       Admin Panel
+    </h6>
+
+    <div class="ms-auto d-flex align-items-center gap-3">
+        <div class="d-none d-md-block">
+        <input type="text" class="form-control form-control-sm"
+               placeholder="Search..." />
+        </div>
+
+     <div class="position-relative">
+        <i class="bi bi-bell fs-5"></i>
+        <span class="badge bg-danger position-absolute top-0 start-100 translate-middle">
+          3
+        </span>
+      </div>
+    <div class="profile-dropdown position-relative">
+
+
+  <div class="d-flex align-items-center gap-2 cursor-pointer"
+       (click)="toggleProfile()">
+
+    <img src="https://i.pravatar.cc/40"
+         class="rounded-circle profile-img">
+
+    <div class="d-none d-md-block">
+      <div class="fw-semibold">Admin</div>
+      <small class="text-muted">Super Admin</small>
+    </div>
+
+    <i class="bi bi-chevron-down ms-1"
+       [class.rotate]="isProfileOpen"></i>
+  </div>
+
+  <!-- DROPDOWN -->
+  <ul class="custom-dropdown shadow"
+      [class.show]="isProfileOpen">
+
+    <li>
+      <a class="dropdown-item">
+        <i class="bi bi-person"></i> Profile
+      </a>
+    </li>
+
+    <li>
+      <a class="dropdown-item">
+        <i class="bi bi-gear"></i> Settings
+      </a>
+    </li>
+
+    <li><hr class="dropdown-divider"></li>
+
+    <li>
+      <a class="dropdown-item text-danger" (click)="onLogout()">
+        <i class="bi bi-box-arrow-right" ></i> Logout
+      </a>
+    </li>
+  </ul>
+
+</div>
+    </div>
+</div>
+
+</header>

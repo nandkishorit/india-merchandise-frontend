@@ -1,0 +1,17 @@
+.nav-item a{
+ color: #fff;
+}
+
+.nav-item a:active{
+ color: #ffc107;
+}
+
+.nav-item a:checked{
+ background-color: #ffc107;
+}
+
+.nav-link.active {
+  background-color: #ffc107;
+  color: #000;
+  font-weight: 500;
+}

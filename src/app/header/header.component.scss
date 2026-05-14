@@ -1,0 +1,21 @@
+.header {
+  /*background-color: #fff;*/
+  border-bottom: 1px solid #eaeaea;
+}
+
+.nav-link {
+  margin: 0 10px;
+  color: #333 !important;
+  transition: color 0.2s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #007bff !important;
+}
+
+.btn {
+  border-radius: 6px;
+  padding: 6px 16px;
+  font-weight: 500;
+}

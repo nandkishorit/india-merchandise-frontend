@@ -1,0 +1,129 @@
+<nav aria-label="breadcrumb" class="mb-0">
+  <div class="d-flex justify-content-between align-items-center bg-light p-2 rounded">
+  <ol class="breadcrumb bg-light p-1 rounded">
+   <li class="breadcrumb-item">
+      <a routerLink="/dashboard" class="text-decoration-none text-primary">
+         <i class="bi bi-house-door-fill me-1"></i> Dashboard
+      </a>
+    </li>
+    <li class="breadcrumb-item">Subscription Plan Master</li>
+  </ol>
+  </div>
+</nav>
+
+<div class="card shadow-lg border-0 rounded-3">
+  <div class="card-header bg-white border-0 d-flex justify-content-between align-items-center p-0">
+    <div class="card-body">
+      <form class="row g-4" >
+        <div class="row g-3"> 
+          <div class="col-md-4 align-items-end">
+              <input type="text" class="form-control" placeholder="Search" formControlName="vendor">
+            </div>
+          </div> 
+      </form>
+    </div>
+   </div>
+
+ <div class="card-body p-2">
+  <div class="table-responsive">
+    <table class="table table-hover align-middle mb-0 table-striped table-bordered table-sm text-sm">
+      <thead class="table-dark text-light">
+        <tr class="small">
+          <th>S.No.</th>
+          <th>Plan</th>
+          <th>Price</th>
+          <th>Validity Days</th>
+          <th>Contact Access </th>
+          <th>Unlock Limit</th>
+          <th>Created Date</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      
+      
+      <tbody>
+          <tr *ngFor="let plan of subscriptionLists; let i = index" class="border-bottom">
+          <td><span class="text-success">{{i+1}}</span></td>
+         
+          <td><span class="text-danger">{{plan.name}}</span></td>
+          <td><span class="text-black">{{plan.price}}</span></td>
+          <td class="text-black">{{plan.validity_days}}</td>
+          <td class="text-black">{{plan.contact_access}}</td>
+          <td class="text-black">{{plan.unlock_limit}}</td>
+          <!-- <td class="text-success">{{enquiry.last_message}}</td> -->
+          <td class="text-primary">{{plan.created_at | date:'dd-MMM-yyyy'}}</td>
+          
+          <td class="text-success">{{plan.status ? "Active": "De-Active"}}</td>
+          <td>
+            
+            
+           
+            <button class="btn btn-primary btn-sm shadow-sm rounded-pill px-3 py-1 me-2 d-inline-flex align-items-center">✏️ Edit</button>
+            <button class="btn btn-danger btn-sm shadow-sm rounded-pill px-3 py-1  d-inline-flex align-items-center">✏️ Delete</button>
+            <!-- <div *ngIf="contact">
+              📞 {{contact.phone}}
+              <a [href]="'https://wa.me/91'+contact.phone">WhatsApp</a>
+            </div> -->
+          </td>
+        </tr>
+
+        <!-- No Data Message -->
+        <!-- <tr *ngIf="paginatedData.length === 0">
+          <td colspan="5" class="text-center text-muted">
+            No records found
+          </td>
+        </tr> -->
+      </tbody>
+
+    </table>
+
+  </div>
+
+  <!-- Pagination OUTSIDE table -->
+  <!-- <div class="d-flex justify-content-center mt-3 pb-3">
+    <button 
+      class="btn btn-sm btn-secondary me-1"
+      (click)="prevPage()"
+      [disabled]="currentPage === 1">
+      Prev
+    </button>
+
+    <button 
+      class="btn btn-sm btn-secondary me-1"
+      *ngFor="let page of pagesArray(); let i = index"
+      (click)="changePage(i + 1)"
+      [class.active]="currentPage === (i + 1)">
+      {{ i + 1 }}
+    </button>           
+
+  <button 
+    class="btn btn-sm btn-secondary"
+    (click)="nextPage()"
+    [disabled]="currentPage === totalPages()">
+    Next
+  </button>
+</div> -->
+</div>
+</div>
+
+<!--------------Modal ---------------------->
+<!-- <div class="custom-modal-backdrop" *ngIf="isModalOpen">
+  <div class="custom-modal">
+    <div class="modal-header">
+      <span class="modal-title text-primary">Buyer Details</span>
+      <button class="btn-close" (click)="closeModal()"></button>
+    </div>
+   
+    <div class="modal-body" *ngIf="enquiryListsById;">
+      <p><b>Product Name: </b>{{enquiryListsById.product_name}}</p>
+      <p><b>Buyer Name  : </b>{{enquiryListsById.buyer_name}}</p>
+      <p><b>Business Name        : </b>{{enquiryListsById.business_name}}</p>
+    
+      <p><b>Quantity    : </b>{{enquiryListsById.quantity}}</p>
+      <p><b>Message         : </b>{{enquiryListsById.last_message}}</p>
+     
+   
+    </div>
+</div>
+</div> -->
